@@ -1,0 +1,15 @@
+{
+  "name": "express-file-upload",
+  "version": "1.0.0",
+  "description": "An Express.js server to showcase how to handle file uploading through a RESTful API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "express-file-upload"
+  },
+  "author": "alnah <alexis.nahan@gmail.com>",
+  "license": "MIT"
+}
