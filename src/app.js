@@ -11,6 +11,9 @@ const productsRoutes = require("./routes/productsRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// parser
+app.use(express.json());
+
 // serve the root route
 app.get("/", (_, res) => {
   res.send("<h1>File Upload API</h1>");
