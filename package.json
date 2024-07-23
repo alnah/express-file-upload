@@ -11,5 +11,8 @@
     "url": "express-file-upload"
   },
   "author": "alnah <alexis.nahan@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
