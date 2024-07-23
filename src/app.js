@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
+const fileUpload = require("express-fileupload");
 
 const connectDb = require("./database/connect");
 const routeNotFound = require("./middlewares/routeNotFoundMiddleware");
@@ -11,18 +12,21 @@ const productsRoutes = require("./routes/productsRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// parser
+// setup parser
 app.use(express.json());
+
+// setup file-uploader
+app.use(fileUpload());
 
 // serve the root route
 app.get("/", (_, res) => {
   res.send("<h1>File Upload API</h1>");
 });
 
-// routes
+// setup main api route
 app.use("/api/v1/products", productsRoutes);
 
-// setup the middleware functions
+// setup errors
 app.use(routeNotFound);
 app.use(errorHandler);
 
