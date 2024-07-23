@@ -12,6 +12,9 @@ const productsRoutes = require("./routes/productsRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// serve static files
+app.use(express.static("./public"));
+
 // setup parser
 app.use(express.json());
 
