@@ -5,6 +5,7 @@ const express = require("express");
 const connectDb = require("./database/connect");
 const routeNotFound = require("./middlewares/routeNotFoundMiddleware");
 const errorHandler = require("./middlewares/errorHandlerMiddleware");
+const productsRoutes = require("./routes/productsRoutes");
 
 // setup the server and port
 const app = express();
@@ -14,6 +15,9 @@ const port = process.env.PORT || 3000;
 app.get("/", (_, res) => {
   res.send("<h1>File Upload API</h1>");
 });
+
+// routes
+app.use("/api/v1/products", productsRoutes);
 
 // setup the middleware functions
 app.use(routeNotFound);
