@@ -4,7 +4,9 @@
   "description": "An Express.js server to showcase how to handle file uploading through a RESTful API.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js",
+    "dev": "clear && nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
