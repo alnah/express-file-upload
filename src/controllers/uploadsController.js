@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const cloudinary = require("cloudinary").v2;
+
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError } = require("../errors");
 
@@ -36,4 +38,16 @@ const uploadProductImageLocal = async (req, res, next) => {
     .json({ image: { src: `/uploads/${productImage.name.toLowerCase()}` } });
 };
 
-module.exports = { uploadProductImageLocal };
+const uploadProductImageCloud = async (req, res, next) => {
+  const result = await cloudinary.uploader.upload(
+    req.files.image.tempFilePath,
+    {
+      use_filename: true,
+      folder: "file-upload",
+    }
+  );
+
+  res.status(StatusCodes.OK).json({ image: { src: result.secure_url } });
+};
+
+module.exports = { uploadProductImageLocal, uploadProductImageCloud };
