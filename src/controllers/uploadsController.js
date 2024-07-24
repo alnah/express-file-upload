@@ -6,7 +6,7 @@ const { BadRequestError } = require("../errors");
 
 const MAX_SIZE = 1024 * 1024;
 
-const uploadProductImage = async (req, res, next) => {
+const uploadProductImageLocal = async (req, res, next) => {
   if (!req.files) {
     throw new BadRequestError("No file uploaded.");
   }
@@ -36,4 +36,4 @@ const uploadProductImage = async (req, res, next) => {
     .json({ image: { src: `/uploads/${productImage.name.toLowerCase()}` } });
 };
 
-module.exports = { uploadProductImage };
+module.exports = { uploadProductImageLocal };
