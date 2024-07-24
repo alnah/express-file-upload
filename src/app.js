@@ -2,6 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const fileUpload = require("express-fileupload");
+const cloudinary = require("cloudinary").v2;
 
 const connectDb = require("./database/connect");
 const routeNotFound = require("./middlewares/routeNotFoundMiddleware");
@@ -11,6 +12,13 @@ const productsRoutes = require("./routes/productsRoutes");
 // setup the server and port
 const app = express();
 const port = process.env.PORT || 3000;
+
+// setup cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // serve static files
 app.use(express.static("./public"));
