@@ -1,7 +1,7 @@
 {
   "name": "express-file-upload",
   "version": "1.0.0",
-  "description": "An Express.js server to showcase how to handle file uploading through a RESTful API.",
+  "description": "An Express.js server to handle file uploads, temporarily store them, upload to Cloudinary, and then delete the temporary files.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
