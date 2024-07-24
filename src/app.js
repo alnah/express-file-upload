@@ -27,7 +27,7 @@ app.use(express.static("./public"));
 app.use(express.json());
 
 // setup file-uploader
-app.use(fileUpload());
+app.use(fileUpload({ useTempFiles: true }));
 
 // serve the root route
 app.get("/", (_, res) => {
